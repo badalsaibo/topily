@@ -1,6 +1,11 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import themeConfig from "@/config/theme";
+import { CssVarsProvider, extendTheme } from "@mui/joy";
+import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <CssVarsProvider theme={extendTheme(themeConfig)}>
+      <Component {...pageProps} />
+    </CssVarsProvider>
+  );
 }
