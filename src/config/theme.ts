@@ -1,5 +1,5 @@
 import { CssVarsThemeOptions } from '@mui/joy';
-import { Inter } from '@next/font/google';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({
   weight: ['600', '400', '300'],
@@ -8,8 +8,9 @@ const inter = Inter({
 });
 
 const themeConfig: CssVarsThemeOptions = {
+  cssVarPrefix: '',
   fontFamily: {
-    body: `${inter.style.fontFamily}, var(--joy-fontFamily-fallback)`,
+    body: `${inter.style.fontFamily}, var(--fontFamily-fallback)`,
   },
 };
 
