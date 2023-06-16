@@ -4,7 +4,8 @@ import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <CssVarsProvider theme={extendTheme(themeConfig)}>
+    <CssVarsProvider theme={extendTheme(themeConfig)} defaultMode="system"
+>
       <Component {...pageProps} />
     </CssVarsProvider>
   );
