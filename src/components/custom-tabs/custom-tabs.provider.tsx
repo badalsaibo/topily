@@ -1,8 +1,8 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 
 type CustomTabsProviderValues = {
-  activeTabIndex: number;
-  setActiveTabIndex?: React.Dispatch<React.SetStateAction<number>>;
+  activeTab: string;
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type CustomTabsProviderProps = {
@@ -10,18 +10,19 @@ type CustomTabsProviderProps = {
 };
 
 const CustomTabsContext = createContext<CustomTabsProviderValues>({
-  activeTabIndex: 0,
+  activeTab: 'all',
+  setActiveTab: () => {},
 });
 
 const CustomTabsProvider = ({ children }: CustomTabsProviderProps) => {
-  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<string>('all');
 
   const state = useMemo(
     () => ({
-      activeTabIndex,
-      setActiveTabIndex,
+      activeTab,
+      setActiveTab,
     }),
-    [activeTabIndex]
+    [activeTab]
   );
   return (
     <CustomTabsContext.Provider value={state}>
@@ -29,5 +30,7 @@ const CustomTabsProvider = ({ children }: CustomTabsProviderProps) => {
     </CustomTabsContext.Provider>
   );
 };
+
+export const useCustomTabs = () => useContext(CustomTabsContext);
 
 export default CustomTabsProvider;

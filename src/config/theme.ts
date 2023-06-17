@@ -12,6 +12,15 @@ const themeConfig: CssVarsThemeOptions = {
   fontFamily: {
     body: `${inter.style.fontFamily}, var(--fontFamily-fallback)`,
   },
+  components: {
+    JoySheet: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+        },
+      },
+    },
+  },
 };
 
 export default themeConfig;
