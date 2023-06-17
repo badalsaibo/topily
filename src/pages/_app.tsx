@@ -7,6 +7,7 @@ import {
   extendTheme,
 } from '@mui/joy';
 import CustomTabsProvider from '@/components/custom-tabs/custom-tabs.provider';
+import EditorProvider from '@/components/editor/editor.provider';
 
 const globalStyles = (
   <GlobalStyles
@@ -27,9 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <CssVarsProvider theme={extendTheme(themeConfig)} defaultMode="light">
       <CssBaseline />
       {globalStyles}
-      <CustomTabsProvider>
-        <Component {...pageProps} />
-      </CustomTabsProvider>
+      <EditorProvider>
+        <CustomTabsProvider>
+          <Component {...pageProps} />
+        </CustomTabsProvider>
+      </EditorProvider>
     </CssVarsProvider>
   );
 }

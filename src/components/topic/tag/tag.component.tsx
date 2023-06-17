@@ -16,8 +16,8 @@ const Tag = ({ name }: { name: string }) => {
     <Chip
       size="sm"
       sx={{
-        bgcolor: colorPalette[200],
-        color: colorPalette[800],
+        bgcolor: colorPalette[100],
+        color: colorPalette[600],
         fontWeight: 'bold',
       }}
     >
